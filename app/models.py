@@ -3,10 +3,10 @@ from flask_login import UserMixin
 
 @login_manager.user_loader
 def current_user(user_id):
-    return usuario.query.get(user_id)
+    return cadastros.query.get(user_id)
 
-class cadastros(db.Model, UserMixin):
-    __tablename__ = "cadastros"
+class usuario(db.Model, UserMixin):
+    __tablename__ = "usuarios"
     os = db.Column(db.Integer, primary_key=True)
     nome = db.Column(db.String(255), nullable=False)
     fone = db.Column(db.String(255), nullable=False)
